@@ -1,3 +1,11 @@
+:root{
+    --special-color: tomato;
+    --second-color: rgb(35, 49, 146);
+    --light-color: white;
+    --dark-color: rgb(0, 0, 0);
+    -bright-color: aqua;
+}
+
 /* . is class name selector */
 .container{
     max-width: 900px;
@@ -40,7 +48,7 @@ main>p{
 }
 /* + is the adjacent combinator */
 h2+p{
-    background-color: black;
+    background-color: var(--dark-color);
     color: white;
     padding: 1rem;
 }
@@ -53,3 +61,44 @@ h2+p{
     opacity: .5;
 }
 
+[class]{
+
+}
+
+a[href="#"]{
+    color:  var(--special-color);
+}
+
+/* ^= is for begins with */
+a[href^="http"]{
+    border-left: 6px solid var(--special-color);
+    padding-left: 1em;
+}
+/* $= is for ends with */
+a[href$=".pdf"]::after{
+    content: "\2913";
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--special-color);
+}
+/* + is adjacent combinator, ::first-line is to select the text in first line */
+h2+p::first-line{
+    color: var(--special-color);
+}
+/* + is adjacent combinator, ::first-letter is to select the text in first character */
+h3+p::first-letter{
+    background-color: var(--second-color);
+    color: var(--bright-color);
+    font-size: 1.25rem;
+    padding: .25em;
+    margin: .15em;
+}
+
+.google{
+    display: block;
+    background-color: var(--second-color);
+    color: var(--light-color);
+    padding: 2rem;
+    margin: 1rem;
+    width: calc(100% - 6px - 5remx);
+}
